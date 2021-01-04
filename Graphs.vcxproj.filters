@@ -18,12 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Graph\Graph.cpp">
+    <ClCompile Include="Heap\heap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph\graph.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Graph\Graph.h">
+    <ClInclude Include="Heap\heap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph\graph.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

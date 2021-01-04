@@ -1,53 +1,67 @@
+/**
+* @file			graph.cpp
+* @author		tanghf
+* @date			2021-01-03
+* @version		V1.0
+* @copyright    Copyright (c) 2021
+*
+*/
+
 #include "Graph.h"
 
 
-void UndirectedGraph::CreateGraph(std::vector<std::string> vertex,
-	std::pair<std::vector<int>, double> edgeWeight[]) {
+/**
+* @brief 生成无向图
+* @param vertex				顶点数组
+* @param edge_weight[]      边的两顶点索引和权值对
+* 
+*/
 
-	for (int i = 0; i < vNums; i++) {
+void UndirectedGraph::CreateGraph(std::vector<std::string> vertex,
+	std::pair<std::vector<int>, double> edge_weight[]) {
+
+	for (int i = 0; i < vertex_nums_; i++) {
 		VertexNode* v = new VertexNode;
-		v->vertex = vertex[i];
-		v->firstEdge = nullptr;
-		graph.push_back(*v);
+		v->data = vertex[i];
+		v->first_edge = nullptr;
+		graph_.push_back(*v);
 	}
-	for (int nums = 0; nums < eNums; nums++) {
+	for (int nums = 0; nums < edge_nums_; nums++) {
 
 		int i, j;
 		double weight;
-		i = edgeWeight[nums].first[0];
-		j = edgeWeight[nums].first[1];
-		weight = edgeWeight[nums].second;
+		i = edge_weight[nums].first[0];
+		j = edge_weight[nums].first[1];
+		weight = edge_weight[nums].second;
 
 		EdgeTableNode* et = new EdgeTableNode;		//将(vi,vj)的信息加入边表
 		et->begin = i;
 		et->end = j;
 		et->weight = weight;
-		edgeTable.push_back(*et);
+		edge_table_.push_back(*et);
 
 
 		EdgeNode* e = new EdgeNode;					//添加(vi,vj)到邻接表
-		e->adjVertex = j;
+		e->adjacency_vertex = j;
 		e->weight = weight;
 
-		e->next = graph[i].firstEdge;
-		graph[i].firstEdge = e;
+		e->next = graph_[i].first_edge;
+		graph_[i].first_edge = e;
 
 		e = new EdgeNode;							//添加(vj,vi)到邻接表
-		e->adjVertex = i;
+		e->adjacency_vertex = i;
 		e->weight = weight;
 
-		e->next = graph[j].firstEdge;
-		graph[j].firstEdge = e;
+		e->next = graph_[j].first_edge;
+		graph_[j].first_edge = e;
 	}
 
 
-	for (auto v : graph) {
-		std::cout << "Vertex: " << v.vertex << std::endl;
+	for (auto vertex : graph_) {
+		std::cout << "Vertex: " << vertex.data << std::endl;
 		std::cout << "Edges: ";
-		for (auto p = v.firstEdge; p != nullptr; p = p->next) {
-			int adjVxIndex = p->adjVertex;
-			std::cout << "(" << v.vertex << ","
-				<< graph[adjVxIndex].vertex << "),weight = " << p->weight << " ";
+		for (auto vptr = vertex.first_edge; vptr != nullptr; vptr = vptr->next) {
+			std::cout << vptr->adjacency_vertex << " ";
 		}
 
 		std::cout << std::endl;
@@ -57,18 +71,22 @@ void UndirectedGraph::CreateGraph(std::vector<std::string> vertex,
 
 
 
+/**
+* @brief 根据用户输入创建无向图
+*
+*/
 void UndirectedGraph::CreateGraph() {
 	//初始化顶点数组
-	for (int i = 0; i < vNums; i++) {
-		VertexNode* v = new VertexNode;
+	for (int i = 0; i < vertex_nums_; i++) {
+		VertexNode* vertex = new VertexNode;
 		std::cout << "Input vertex " << i << " value:" << std::endl;
-		std::cin >> v->vertex;
-		v->firstEdge = nullptr;
-		graph.push_back(*v);
+		std::cin >> vertex->data;
+		vertex->first_edge = nullptr;
+		graph_.push_back(*vertex);
 	}
 
 	//为顶点添加相关的边信息
-	for (int nums = 0; nums < eNums; nums++) {
+	for (int nums = 0; nums < edge_nums_; nums++) {
 		int i, j;
 		double weight;
 		std::cout << "Input the i,j of (vi,vj): ";
@@ -76,25 +94,27 @@ void UndirectedGraph::CreateGraph() {
 		std::cout << "Input the weight of (vi,vj): ";
 		std::cin >> weight;
 
-		EdgeNode* e = new EdgeNode;					//添加(vi,vj)
-		e->adjVertex = j;
-		e->weight = weight;
-		e->next = graph[i].firstEdge;				//插入边节点
-		graph[i].firstEdge = e;
+		EdgeNode* edge = new EdgeNode;					//添加(vi,vj)到邻接表
+		edge->adjacency_vertex = j;
+		edge->weight = weight;
 
-		e = new EdgeNode;							//无向图还需要添加(vj,vi)
-		e->adjVertex = i;
-		e->weight = weight;
-		e->next = graph[j].firstEdge;
-		graph[j].firstEdge = e;
+		edge->next = graph_[i].first_edge;
+		graph_[i].first_edge = edge;
+
+		edge = new EdgeNode;							//添加(vj,vi)到邻接表
+		edge->adjacency_vertex = i;
+		edge->weight = weight;
+
+		edge->next = graph_[j].first_edge;
+		graph_[j].first_edge = edge;
 	}
 
 	//输出添加的信息
-	for (auto v : graph) {
-		std::cout << "Vertex: " << v.vertex << std::endl;
+	for (auto vertex : graph_) {
+		std::cout << "Vertex: " << vertex.data << std::endl;
 		std::cout << "Edges: ";
-		for (auto p = v.firstEdge; p != nullptr; p = p->next) {
-			std::cout << p->adjVertex << " ";
+		for (auto vptr = vertex.first_edge; vptr != nullptr; vptr = vptr->next) {
+			std::cout << vptr->adjacency_vertex << " ";
 		}
 
 		std::cout << std::endl;
@@ -102,24 +122,28 @@ void UndirectedGraph::CreateGraph() {
 	}
 }
 
+/**
+*@brief DFS
+*@param is_visted	 顶点是否被访问标识
+*@param vertex      顶点索引值
+*@birth: 2021/1/3
+*/
+void UndirectedGraph::DFS(std::vector<bool>& is_visted, int vertex) {
 
-void UndirectedGraph::DFS(std::vector<bool>& isVisted, int i) {
-
-	isVisted[i] = true;
-	std::cout << graph[i].vertex << " ";
-	for (auto p = graph[i].firstEdge; p != nullptr; p = p->next) {
-		if (!isVisted[p->adjVertex]) {
-			DFS(isVisted, p->adjVertex);
+	is_visted[vertex] = true;
+	std::cout << graph_[vertex].data << " ";
+	for (auto p = graph_[vertex].first_edge; p != nullptr; p = p->next) {
+		if (!is_visted[p->adjacency_vertex]) {
+			DFS(is_visted, p->adjacency_vertex);
 		}
 	}
 
 }
-
 
 void UndirectedGraph::DFSTraverse() {
-	std::vector<bool> isVisted(vNums, false);
+	std::vector<bool> isVisted(vertex_nums_, false);
 
-	for (int i = 0; i < vNums; i++) {
+	for (int i = 0; i < vertex_nums_; i++) {
 		if (!isVisted[i]) {
 			DFS(isVisted, i);
 		}
@@ -129,23 +153,23 @@ void UndirectedGraph::DFSTraverse() {
 
 
 void UndirectedGraph::BFSTraverse() {
-	std::vector<bool> isVisted(vNums, false);
+	std::vector<bool> is_visted(vertex_nums_, false);
 	std::queue<VertexNode> Q;
-	VertexNode v;
+	VertexNode vertex;
 
-	for (int i = 0; i < vNums; i++) {
-		if (!isVisted[i]) {
-			Q.push(graph[i]);
-			isVisted[i] = true;
+	for (int i = 0; i < vertex_nums_; i++) {
+		if (!is_visted[i]) {
+			Q.push(graph_[i]);
+			is_visted[i] = true;
 		}
 		while (!Q.empty()) {
-			v = Q.front();
+			vertex = Q.front();
 
-			std::cout << v.vertex << " ";
-			for (auto p = v.firstEdge; p != nullptr; p = p->next) {
-				if (!isVisted[p->adjVertex]) {
-					Q.push(graph[p->adjVertex]);
-					isVisted[p->adjVertex] = true;
+			std::cout << vertex.data << " ";
+			for (auto vptr = vertex.first_edge; vptr != nullptr; vptr = vptr->next) {
+				if (!is_visted[vptr->adjacency_vertex]) {
+					Q.push(graph_[vptr->adjacency_vertex]);
+					is_visted[vptr->adjacency_vertex] = true;
 				}
 			}
 			Q.pop();
@@ -156,64 +180,71 @@ void UndirectedGraph::BFSTraverse() {
 }
 
 
-
+/**
+*@brief Prim算法生成最小生成树
+*@birth: 2021/1/3
+*/
 void UndirectedGraph::MiniSpanTreePrim() {
-	std::vector<EdgeCost> eCost(vNums);
-	for (int i = 0; i < eCost.size(); i++) {
-		eCost[i].lowestcost = INFIN;
-		eCost[i].parent = 0;
+	std::vector<EdgeCost> edge_cost(vertex_nums_);
+	for (int i = 0; i < edge_cost.size(); i++) {
+		edge_cost[i].lowest_cost = kInfinity;
+		edge_cost[i].parent = 0;
 	}
 
-	LowestCostUpdate(0, eCost);
-	for (int i = 1; i < vNums; i++) {
-		double min = INFIN;
-		int nextIndex = 0;
-		for (int j = 0; j < eCost.size(); j++) {
-			if (eCost[j].lowestcost < min && eCost[j].lowestcost != 0) {
-				min = eCost[j].lowestcost;
-				nextIndex = j;
+	LowestCostUpdate(0, edge_cost);
+	for (int i = 1; i < vertex_nums_; i++) {
+		double min_cost = kInfinity;
+		int next_vertex = 0;
+		for (int j = 0; j < edge_cost.size(); j++) {
+			if (edge_cost[j].lowest_cost < min_cost && edge_cost[j].lowest_cost != 0) {
+				min_cost = edge_cost[j].lowest_cost;
+				next_vertex = j;
 			}
 		}
-		int parentIndex = eCost[nextIndex].parent;
-		std::cout << "(" << graph[parentIndex].vertex << "," << graph[nextIndex].vertex << ") "
-			<< "weight = " << min << std::endl;
-		LowestCostUpdate(nextIndex, eCost);
+		int parent_vertex = edge_cost[next_vertex].parent;
+		std::cout << "(" << graph_[parent_vertex].data << "," << graph_[next_vertex].data << ") "
+			<< "weight = " << min_cost << std::endl;
+		LowestCostUpdate(next_vertex, edge_cost);
 	}
 
 }
 
 
 void UndirectedGraph::LowestCostUpdate(int v,
-	std::vector<EdgeCost>& eCost) {
-	eCost[v].lowestcost = 0;				//lowestcost = 0 表示此顶点已进入最小生成树集合
-	for (auto p = graph[v].firstEdge; p != nullptr; p = p->next) {
-		int adjIndex = p->adjVertex;
-		double cost = eCost[adjIndex].lowestcost;
+	std::vector<EdgeCost>& edge_cost) {
+	edge_cost[v].lowest_cost = 0;				//lowestcost = 0 表示此顶点已进入最小生成树集合
+	for (auto p = graph_[v].first_edge; p != nullptr; p = p->next) {
+		int adjacency_vertex = p->adjacency_vertex;
+		double cost = edge_cost[adjacency_vertex].lowest_cost;
 		if (cost != 0 && p->weight < cost) {
-			eCost[adjIndex].lowestcost = p->weight;
-			eCost[adjIndex].parent = v;
+			edge_cost[adjacency_vertex].lowest_cost = p->weight;
+			edge_cost[adjacency_vertex].parent = v;
 		}
 	}
 }
 
 
+/**
+*@brief Kruskal算法生成最小生成树
+*@birth: 2021/1/3
+*/
 void UndirectedGraph::MiniSpanTreeKruskal() {
-	std::vector<ForestNode> forest(eNums);
+	std::vector<ForestNode> forest(edge_nums_);
 
-	std::sort(edgeTable.begin(), edgeTable.end(), [](EdgeTableNode e1, EdgeTableNode e2) {
+	std::sort(edge_table_.begin(), edge_table_.end(), [](EdgeTableNode e1, EdgeTableNode e2) {
 		return e1.weight < e2.weight;
 		});
-	for (int i = 0; i < eNums; i++) {
+	for (int i = 0; i < edge_nums_; i++) {
 		MakeSet(i, forest);
 	}
 
-	for (int i = 0; i < eNums; i++) {
-		int v = edgeTable[i].begin;
-		int u = edgeTable[i].end;
+	for (int i = 0; i < edge_nums_; i++) {
+		int v = edge_table_[i].begin;					//获得边(v,u)的尾顶点v,头顶点u，
+		int u = edge_table_[i].end;
 		if (FindSet(v, forest) != FindSet(u, forest)) {
-			std::cout << "(" << graph[v].vertex << ","
-				<< graph[u].vertex << ") "
-				<< "weight = " << edgeTable[i].weight << std::endl;
+			std::cout << "(" << graph_[v].data << ","
+				<< graph_[u].data << ") "
+				<< "weight = " << edge_table_[i].weight << std::endl;
 			Union(u, v, forest);
 		}
 	}
@@ -221,7 +252,7 @@ void UndirectedGraph::MiniSpanTreeKruskal() {
 }
 
 
-
+/** Kruskal 算法辅助函数：并查集*/
 void UndirectedGraph::MakeSet(int v,
 	std::vector<ForestNode>& forest) {
 	forest[v].parent = v;
@@ -232,7 +263,7 @@ void UndirectedGraph::MakeSet(int v,
 int UndirectedGraph::FindSet(int v,
 	std::vector<ForestNode>& forest) {
 	if (forest[v].parent != v) {
-		forest[v].parent = FindSet(forest[v].parent, forest);			//路径压缩
+		forest[v].parent = FindSet(forest[v].parent, forest);	//路径压缩
 	}
 	return forest[v].parent;									//返回集合的代表节点索引值
 }
@@ -240,15 +271,15 @@ int UndirectedGraph::FindSet(int v,
 
 void UndirectedGraph::Union(int v, int u,
 	std::vector<ForestNode>& forest) {
-	int p1 = FindSet(v, forest);
-	int p2 = FindSet(u, forest);
-	if (forest[p1].rank > forest[p2].rank) {
-		forest[p2].parent = p1;
+	int root1 = FindSet(v, forest);								//分别获得v,u所在集合的根节点
+	int root2 = FindSet(u, forest);
+	if (forest[root1].rank > forest[root2].rank) {
+		forest[root2].parent = root1;
 	}
 	else {
-		forest[p1].parent = p2;
-		if (forest[p1].rank = forest[p2].rank) {
-			forest[p2].rank++;
+		forest[root1].parent = root2;
+		if (forest[root1].rank = forest[root2].rank) {
+			forest[root2].rank++;
 		}
 	}
 }

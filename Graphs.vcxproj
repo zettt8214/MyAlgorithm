@@ -140,11 +140,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Graph\Graph.cpp" />
+    <ClCompile Include="Graph\graph.cpp" />
+    <ClCompile Include="Heap\heap.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Graph\Graph.h" />
+    <ClInclude Include="Graph\graph.h" />
+    <ClInclude Include="Heap\heap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
