@@ -1,20 +1,35 @@
-//
-// @brief: À„∑®¡∑œ∞
-// @birth: created by tanghf on 2021-01-03
-//
-
+/**
+* @file			main.cpp
+* @detail		Algorithm Practice
+* @author		tanghf
+* @date			2021-01-03
+* @version		V1.0
+* @copyright    Copyright (c) 2021
+*/
 #include "Graph/graph.h"
 #include "Heap/heap.h"
+#include "Heap/priority_queue.h"
 using namespace std;
 
-
+void PriorityQueueTest();
 void GraphTest();
 void HeapTest();
 
 int main() {
-	GraphTest();
+	PriorityQueueTest();
 }
 
+void PriorityQueueTest() {
+	vector<int> nums = { 0,77,24,18,72,19,100,2 };
+	PriorityQueue<int> pq(nums, GreaterThan);
+	pq.ShowQueue();
+	cout<<endl;
+	cout << pq.ViewTop() << endl;
+	cout << "Extract Element:" << endl;
+	while (!pq.empty()) {
+		cout << pq.ExtractTop() << " ";
+	}
+}
 void HeapTest() {
 	vector<int> a = { 0,77,24,18,72,19,100,2 };
 	HeapSort(a);
@@ -29,6 +44,7 @@ void HeapTest() {
 		std::cout << x << " ";
 	}
 }
+
 void GraphTest() {
 	UndirectedGraph g(9, 15);
 	vector<string> vertex = { "v0","v1","v2","v3","v4","v5","v6","v7","v8" };

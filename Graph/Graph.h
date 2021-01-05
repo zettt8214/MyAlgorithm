@@ -15,7 +15,9 @@
 #include <algorithm>
 #include <string>
 
-//无向图相关操作，包含创建无向图、DFS、BFS、最小生成树（Prim 和 Kruskal算法）
+/**
+ *  @brief 无向图，包含创建无向图、DFS、BFS、最小生成树（Prim 和 Kruskal算法）
+ */ 
 class UndirectedGraph								
 {
 private:
@@ -54,28 +56,28 @@ private:
 	int edge_nums_;									///< 边数量
 
 	
-	void DFS(std::vector<bool>& isVisted, int i);	/// 深度优先遍历递归调用函数
+	void DFS(std::vector<bool>& isVisted, int i);	///< 深度优先遍历递归调用函数
 
 	
-	void LowestCostUpdate(int v, std::vector<EdgeCost>& edgecost);	/// Prim算法辅助函数，更新最小权值
+	void LowestCostUpdate(int v, std::vector<EdgeCost>& edgecost);	///< Prim算法辅助函数，更新最小权值
 
 	/** Kruskal算法，辅助函数 */
-	void MakeSet(int v, std::vector<ForestNode>& forest);			/// 将顶点设置为集合元素
-	void Union(int v, int u,std::vector<ForestNode>& forest);		/// 合并两个顶点所在的集合
-	int FindSet(int v, std::vector<ForestNode>& forest);			/// 查找顶点所在集合				
+	void MakeSet(int v, std::vector<ForestNode>& forest);			///< 将顶点设置为集合元素
+	void Union(int v, int u,std::vector<ForestNode>& forest);		///< 合并两个顶点所在的集合
+	int FindSet(int v, std::vector<ForestNode>& forest);			///< 查找顶点所在集合				
 
 public:
 	static const int kInfinity = 65535;
-	UndirectedGraph(int vn ,int en):vertex_nums_(vn), edge_nums_(en){} /// 指定定点数、边数
+	UndirectedGraph(int vn ,int en):vertex_nums_(vn), edge_nums_(en){} ///< 指定定点数、边数
 	void CreateGraph(std::vector<std::string> vertex,		
-		std::pair<std::vector<int>, double> edge_weight[]); // 静态创建无向图
+		std::pair<std::vector<int>, double> edge_weight[]); ///< 静态创建无向图
 
-	void CreateGraph();										// 动态输入创建无向图
+	void CreateGraph();										///< 动态输入创建无向图
 
-	void DFSTraverse();										// 深度优先遍历
-	void BFSTraverse();										// 广度优先遍历
-	void MiniSpanTreePrim();								// Prim算法生成最小生成树
-	void MiniSpanTreeKruskal();								// Kruskal算法生成最小生成树
+	void DFSTraverse();										///< 深度优先遍历
+	void BFSTraverse();										///< 广度优先遍历
+	void MiniSpanTreePrim();								///< Prim算法生成最小生成树
+	void MiniSpanTreeKruskal();								///< Kruskal算法生成最小生成树
 };
 	
 #endif // !GRAPH_H_

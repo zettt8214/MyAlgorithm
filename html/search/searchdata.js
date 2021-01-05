@@ -1,11 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "cghkmpu",
-  1: "u",
-  2: "gh",
-  3: "chm",
-  4: "k",
-  5: "p"
+  0: "bcdefghimpuvå",
+  1: "pu",
+  2: "ghmp",
+  3: "bcdefhimuv",
+  4: "p",
+  5: "å"
 };
 
 var indexSectionNames =
@@ -14,8 +14,8 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "variables",
-  5: "typedefs"
+  4: "typedefs",
+  5: "pages"
 };
 
 var indexSectionLabels =
@@ -24,7 +24,7 @@ var indexSectionLabels =
   1: "类",
   2: "文件",
   3: "函数",
-  4: "变量",
-  5: "类型定义"
+  4: "类型定义",
+  5: "页"
 };
 

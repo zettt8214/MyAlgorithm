@@ -142,11 +142,13 @@
   <ItemGroup>
     <ClCompile Include="Graph\graph.cpp" />
     <ClCompile Include="Heap\heap.cpp" />
+    <ClCompile Include="Heap\priority_queue.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph\graph.h" />
     <ClInclude Include="Heap\heap.h" />
+    <ClInclude Include="Heap\priority_queue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

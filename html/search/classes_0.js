@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['undirectedgraph_12',['UndirectedGraph',['../class_undirected_graph.html',1,'']]]
+  ['priorityqueue_22',['PriorityQueue',['../class_priority_queue.html',1,'']]]
 ];

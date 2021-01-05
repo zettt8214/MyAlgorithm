@@ -8,7 +8,7 @@
 */
 
 #include "Graph.h"
-
+#include "..\Heap\priority_queue.h"
 
 /**
 * @brief 生成无向图
@@ -126,7 +126,6 @@ void UndirectedGraph::CreateGraph() {
 *@brief DFS
 *@param is_visted	 顶点是否被访问标识
 *@param vertex      顶点索引值
-*@birth: 2021/1/3
 */
 void UndirectedGraph::DFS(std::vector<bool>& is_visted, int vertex) {
 
@@ -182,7 +181,6 @@ void UndirectedGraph::BFSTraverse() {
 
 /**
 *@brief Prim算法生成最小生成树
-*@birth: 2021/1/3
 */
 void UndirectedGraph::MiniSpanTreePrim() {
 	std::vector<EdgeCost> edge_cost(vertex_nums_);
@@ -226,7 +224,6 @@ void UndirectedGraph::LowestCostUpdate(int v,
 
 /**
 *@brief Kruskal算法生成最小生成树
-*@birth: 2021/1/3
 */
 void UndirectedGraph::MiniSpanTreeKruskal() {
 	std::vector<ForestNode> forest(edge_nums_);
@@ -283,3 +280,4 @@ void UndirectedGraph::Union(int v, int u,
 		}
 	}
 }
+

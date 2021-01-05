@@ -20,7 +20,7 @@ bool {\bfseries Lesser\+Than} (const int \&num1, const int \&num2)
 \item 
 void \mbox{\hyperlink{heap_8h_a9e7d890d3e5d47ebf43df16afbb34959}{Heap\+Sort}} (std\+::vector$<$ int $>$ \&nums, \mbox{\hyperlink{heap_8h_ac8f4efba9218f79ddd67eabd224883c4}{pfunc}} cmp=Greater\+Than)
 \begin{DoxyCompactList}\small\item\em 堆排序 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{heap_8h_a2809390fc55897e6a97dfa68612fa79b}{Heap\+Ify}} (std\+::vector$<$ int $>$ \&nums, int index, int heap\+\_\+size, \mbox{\hyperlink{heap_8h_ac8f4efba9218f79ddd67eabd224883c4}{pfunc}} cmp)
+void \mbox{\hyperlink{heap_8h_af1cb56ff5b8f702ee6432dc66d7fce1a}{Heap\+Ify}} (std\+::vector$<$ int $>$ \&nums, int root, int heap\+\_\+size, \mbox{\hyperlink{heap_8h_ac8f4efba9218f79ddd67eabd224883c4}{pfunc}} cmp)
 \begin{DoxyCompactList}\small\item\em 根据比较函数，递归调整堆 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{heap_8h_ad475338abe031c4029c2dd0b527d3d0a}\label{heap_8h_ad475338abe031c4029c2dd0b527d3d0a}} 
 void {\bfseries Build\+Heap} (std\+::vector$<$ int $>$ \&nums, \mbox{\hyperlink{heap_8h_ac8f4efba9218f79ddd67eabd224883c4}{pfunc}} cmp)
@@ -43,11 +43,11 @@ Copyright (c) 2021
 
 
 \doxysubsection{函数说明}
-\mbox{\Hypertarget{heap_8h_a2809390fc55897e6a97dfa68612fa79b}\label{heap_8h_a2809390fc55897e6a97dfa68612fa79b}} 
+\mbox{\Hypertarget{heap_8h_af1cb56ff5b8f702ee6432dc66d7fce1a}\label{heap_8h_af1cb56ff5b8f702ee6432dc66d7fce1a}} 
 \index{heap.h@{heap.h}!HeapIfy@{HeapIfy}}
 \index{HeapIfy@{HeapIfy}!heap.h@{heap.h}}
 \doxysubsubsection{\texorpdfstring{HeapIfy()}{HeapIfy()}}
-{\footnotesize\ttfamily void Heap\+Ify (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{nums,  }\item[{int}]{index,  }\item[{int}]{heap\+\_\+size,  }\item[{\mbox{\hyperlink{heap_8h_ac8f4efba9218f79ddd67eabd224883c4}{pfunc}}}]{cmp }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Heap\+Ify (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{nums,  }\item[{int}]{root,  }\item[{int}]{heap\+\_\+size,  }\item[{\mbox{\hyperlink{heap_8h_ac8f4efba9218f79ddd67eabd224883c4}{pfunc}}}]{cmp }\end{DoxyParamCaption})}
 
 
 
@@ -59,7 +59,7 @@ Copyright (c) 2021
 \hline
 {\em heap\+\_\+size} & 堆大小 \\
 \hline
-{\em index} & 调整节点索引 \\
+{\em root} & 调整节点索引 \\
 \hline
 {\em pfunc} & 排序方式 \\
 \hline

@@ -15,14 +15,14 @@
 * @brief	根据比较函数，递归调整堆
 * @param  nums		数组
 * @param  heap_size	堆大小
-* @param  index		调整节点索引
+* @param  root		调整节点索引
 * @param  pfunc		排序方式
 *
 */
-void HeapIfy(std::vector<int> &nums, int index,int heap_size, pfunc cmp) {
-	int left_child = index * 2 + 1;
-	int right_child = index * 2 + 2;
-	int temp = index;
+void HeapIfy(std::vector<int> &nums, int root,int heap_size, pfunc cmp) {
+	int left_child = root * 2 + 1;
+	int right_child = root * 2 + 2;
+	int temp = root;
 	
 	if (left_child < heap_size && (*cmp)(nums[left_child], nums[temp])) {
 		temp = left_child;
@@ -32,8 +32,8 @@ void HeapIfy(std::vector<int> &nums, int index,int heap_size, pfunc cmp) {
 		temp = right_child;
 	}
 
-	if (temp != index) {
-		swap(nums[index], nums[temp]);
+	if (temp != root) {
+		swap(nums[root], nums[temp]);
 		HeapIfy(nums, temp, heap_size, cmp);
 	}
 }

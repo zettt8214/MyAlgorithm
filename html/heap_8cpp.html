@@ -9,9 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -30,35 +27,15 @@
 </div>
 <!-- end header part -->
 <!-- 制作者 Doxygen 1.9.0 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
-/* @license-end */
-</script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','搜索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',false,false,'search.php','搜索');
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="dir_aca885c8adfb0488f3f3bbbdaa710e9d.html">Programmer Project</a></li><li class="navelem"><a class="el" href="dir_7eb65d6054d19cf48746c6156ba88239.html">CC++Project</a></li><li class="navelem"><a class="el" href="dir_205f14fb44a64c0e704651a50814fdf1.html">Algorithm</a></li><li class="navelem"><a class="el" href="dir_8aa2623ac16e228fc99253063e63a0d2.html">MyAlgorithm</a></li><li class="navelem"><a class="el" href="dir_d78bb48eb6b87bf8b99debebbaf1a358.html">Heap</a></li>  </ul>
@@ -77,9 +54,9 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 函数</h2></td></tr>
-<tr class="memitem:a2809390fc55897e6a97dfa68612fa79b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heap_8cpp.html#a2809390fc55897e6a97dfa68612fa79b">HeapIfy</a> (std::vector&lt; int &gt; &amp;nums, int index, int heap_size, <a class="el" href="heap_8h.html#ac8f4efba9218f79ddd67eabd224883c4">pfunc</a> cmp)</td></tr>
-<tr class="memdesc:a2809390fc55897e6a97dfa68612fa79b"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据比较函数，递归调整堆  <a href="heap_8cpp.html#a2809390fc55897e6a97dfa68612fa79b">更多...</a><br /></td></tr>
-<tr class="separator:a2809390fc55897e6a97dfa68612fa79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1cb56ff5b8f702ee6432dc66d7fce1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heap_8cpp.html#af1cb56ff5b8f702ee6432dc66d7fce1a">HeapIfy</a> (std::vector&lt; int &gt; &amp;nums, int root, int heap_size, <a class="el" href="heap_8h.html#ac8f4efba9218f79ddd67eabd224883c4">pfunc</a> cmp)</td></tr>
+<tr class="memdesc:af1cb56ff5b8f702ee6432dc66d7fce1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据比较函数，递归调整堆  <a href="heap_8cpp.html#af1cb56ff5b8f702ee6432dc66d7fce1a">更多...</a><br /></td></tr>
+<tr class="separator:af1cb56ff5b8f702ee6432dc66d7fce1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad475338abe031c4029c2dd0b527d3d0a"><td class="memItemLeft" align="right" valign="top"><a id="ad475338abe031c4029c2dd0b527d3d0a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>BuildHeap</b> (std::vector&lt; int &gt; &amp;nums, <a class="el" href="heap_8h.html#ac8f4efba9218f79ddd67eabd224883c4">pfunc</a> cmp)</td></tr>
 <tr class="separator:ad475338abe031c4029c2dd0b527d3d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -96,8 +73,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (int &amp;nu
 <dl class="section version"><dt>版本</dt><dd>V1.0 </dd></dl>
 <dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2021 </dd></dl>
 </div><h2 class="groupheader">函数说明</h2>
-<a id="a2809390fc55897e6a97dfa68612fa79b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2809390fc55897e6a97dfa68612fa79b">&#9670;&nbsp;</a></span>HeapIfy()</h2>
+<a id="af1cb56ff5b8f702ee6432dc66d7fce1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1cb56ff5b8f702ee6432dc66d7fce1a">&#9670;&nbsp;</a></span>HeapIfy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,7 +89,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (int &amp;nu
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
+          <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -139,7 +116,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (int &amp;nu
   <table class="params">
     <tr><td class="paramname">nums</td><td>数组 </td></tr>
     <tr><td class="paramname">heap_size</td><td>堆大小 </td></tr>
-    <tr><td class="paramname">index</td><td>调整节点索引 </td></tr>
+    <tr><td class="paramname">root</td><td>调整节点索引 </td></tr>
     <tr><td class="paramname">pfunc</td><td>排序方式 </td></tr>
   </table>
   </dd>

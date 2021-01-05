@@ -24,12 +24,18 @@
     <ClCompile Include="Graph\graph.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Heap\priority_queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Heap\heap.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Graph\graph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Heap\priority_queue.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

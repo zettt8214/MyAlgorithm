@@ -9,9 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -30,35 +27,15 @@
 </div>
 <!-- end header part -->
 <!-- 制作者 Doxygen 1.9.0 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
-/* @license-end */
-</script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','搜索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',false,false,'search.php','搜索');
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
 <div id="nav-path" class="navpath">
   <ul>
 <li class="navelem"><a class="el" href="dir_aca885c8adfb0488f3f3bbbdaa710e9d.html">Programmer Project</a></li><li class="navelem"><a class="el" href="dir_7eb65d6054d19cf48746c6156ba88239.html">CC++Project</a></li><li class="navelem"><a class="el" href="dir_205f14fb44a64c0e704651a50814fdf1.html">Algorithm</a></li><li class="navelem"><a class="el" href="dir_8aa2623ac16e228fc99253063e63a0d2.html">MyAlgorithm</a></li><li class="navelem"><a class="el" href="dir_d78bb48eb6b87bf8b99debebbaf1a358.html">Heap</a></li>  </ul>
@@ -81,14 +58,14 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="heap_8h.html#a9e7d890d3e5d47ebf43df16afbb34959">HeapSort</a>(std::vector&lt;int&gt;&amp; nums, <a class="code" href="heap_8h.html#ac8f4efba9218f79ddd67eabd224883c4">pfunc</a> cmp = GreaterThan);                 <span class="comment">// 堆排序</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="heap_8h.html#a2809390fc55897e6a97dfa68612fa79b">HeapIfy</a>(std::vector&lt;int&gt;&amp; nums, <span class="keywordtype">int</span> index, <span class="keywordtype">int</span> heap_size, <a class="code" href="heap_8h.html#ac8f4efba9218f79ddd67eabd224883c4">pfunc</a> cmp);      <span class="comment">// 调整堆</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="heap_8h.html#af1cb56ff5b8f702ee6432dc66d7fce1a">HeapIfy</a>(std::vector&lt;int&gt;&amp; nums, <span class="keywordtype">int</span> root, <span class="keywordtype">int</span> heap_size, <a class="code" href="heap_8h.html#ac8f4efba9218f79ddd67eabd224883c4">pfunc</a> cmp);       <span class="comment">// 调整堆</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> BuildHeap(std::vector&lt;int&gt;&amp; nums, <a class="code" href="heap_8h.html#ac8f4efba9218f79ddd67eabd224883c4">pfunc</a> cmp);                              <span class="comment">// 创建堆</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// !HEAP_H_</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="ttc" id="aheap_8h_html_a2809390fc55897e6a97dfa68612fa79b"><div class="ttname"><a href="heap_8h.html#a2809390fc55897e6a97dfa68612fa79b">HeapIfy</a></div><div class="ttdeci">void HeapIfy(std::vector&lt; int &gt; &amp;nums, int index, int heap_size, pfunc cmp)</div><div class="ttdoc">根据比较函数，递归调整堆</div><div class="ttdef"><b>Definition:</b> heap.cpp:22</div></div>
 <div class="ttc" id="aheap_8h_html_a9e7d890d3e5d47ebf43df16afbb34959"><div class="ttname"><a href="heap_8h.html#a9e7d890d3e5d47ebf43df16afbb34959">HeapSort</a></div><div class="ttdeci">void HeapSort(std::vector&lt; int &gt; &amp;nums, pfunc cmp=GreaterThan)</div><div class="ttdoc">堆排序</div><div class="ttdef"><b>Definition:</b> heap.cpp:54</div></div>
 <div class="ttc" id="aheap_8h_html_ac8f4efba9218f79ddd67eabd224883c4"><div class="ttname"><a href="heap_8h.html#ac8f4efba9218f79ddd67eabd224883c4">pfunc</a></div><div class="ttdeci">bool(*)(const int &amp;, const int &amp;) pfunc</div><div class="ttdoc">函数指针，指向一个比较函数</div><div class="ttdef"><b>Definition:</b> heap.h:12</div></div>
+<div class="ttc" id="aheap_8h_html_af1cb56ff5b8f702ee6432dc66d7fce1a"><div class="ttname"><a href="heap_8h.html#af1cb56ff5b8f702ee6432dc66d7fce1a">HeapIfy</a></div><div class="ttdeci">void HeapIfy(std::vector&lt; int &gt; &amp;nums, int root, int heap_size, pfunc cmp)</div><div class="ttdoc">根据比较函数，递归调整堆</div><div class="ttdef"><b>Definition:</b> heap.cpp:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
