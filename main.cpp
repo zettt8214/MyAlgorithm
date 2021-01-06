@@ -7,16 +7,17 @@
 * @copyright    Copyright (c) 2021
 */
 #include "Graph/graph.h"
-#include "Heap/heap.h"
+#include "Sort/my_sort.h"
 #include "Heap/priority_queue.h"
 using namespace std;
 
 void PriorityQueueTest();
 void GraphTest();
 void HeapTest();
+void SortTest();
 
 int main() {
-	PriorityQueueTest();
+	SortTest();
 }
 
 void PriorityQueueTest() {
@@ -85,4 +86,73 @@ void GraphTest() {
 	cout << "Kruskal:" << endl;
 	g1.MiniSpanTreeKruskal();
 
+}
+
+void SortTest() {
+	vector<int> list = { 1,20,88,32,2,3,97,55 };
+	cout << "HeapSort: ";
+	HeapSort(list);
+	for (auto l : list) {
+		cout << l << " ";
+	}
+	cout << endl;
+
+
+	list = { 1,20,88,32,2,3,97,55 };
+	cout << "InsertionSort: ";
+	InsertionSort(list);
+	for (auto l : list) {
+		cout << l << " ";
+	}
+	cout << endl;
+
+	list = { 1,20,88,32,2,3,97,55 };
+	cout << "QuickSort: ";
+	QuickSort(list,0,list.size());
+	for (auto l : list) {
+		cout << l << " ";
+	}
+	cout << endl;
+
+
+	list = { 1,20,88,32,2,3,97,55 };
+	vector<int> temp(list.size());
+	cout << "MergeSort: ";
+	MergeSort(list, 0, list.size(),temp);
+	for (auto l : list) {
+		cout << l << " ";
+	}
+	cout << endl;
+
+	list = { 1,20,88,32,2,3,97,55 };
+	cout << "BubbleSort: ";
+	BubbleSort(list);
+	for (auto l : list) {
+		cout << l << " ";
+	}
+	cout << endl;
+
+	list = { 1,20,88,32,2,3,97,55 };
+	cout << "SelectSort: ";
+	SelectSort(list);
+	for (auto l : list) {
+		cout << l << " ";
+	}
+	cout << endl;
+
+	list = { 1,20,88,32,2,3,97,55 };
+	cout << "ShellSort: ";
+	ShellSort(list);
+	for (auto l : list) {
+		cout << l << " ";
+	}
+	cout << endl;
+
+	list = { 1,20,88,32,2,3,97,55 };
+	cout << "BucketSort: ";
+	BucketSort(list);
+	for (auto l : list) {
+		cout << l << " ";
+	}
+	cout << endl;
 }

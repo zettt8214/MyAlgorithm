@@ -141,14 +141,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Graph\graph.cpp" />
-    <ClCompile Include="Heap\heap.cpp" />
     <ClCompile Include="Heap\priority_queue.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sort\my_sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph\graph.h" />
-    <ClInclude Include="Heap\heap.h" />
     <ClInclude Include="Heap\priority_queue.h" />
     <ClInclude Include="Sort\my_sort.h" />
   </ItemGroup>
