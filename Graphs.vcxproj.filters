@@ -27,6 +27,9 @@
     <ClCompile Include="Heap\priority_queue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Sort\my_sort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Heap\heap.h">
@@ -36,6 +39,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Heap\priority_queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Sort\my_sort.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
