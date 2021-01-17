@@ -21,10 +21,10 @@
     <ClCompile Include="Graph\graph.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Heap\priority_queue.cpp">
+    <ClCompile Include="Sort\my_sort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Sort\my_sort.cpp">
+    <ClCompile Include="Tree\bst.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,10 +32,13 @@
     <ClInclude Include="Graph\graph.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Heap\priority_queue.h">
+    <ClInclude Include="Sort\my_sort.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Sort\my_sort.h">
+    <ClInclude Include="PriorityQueue\priority_queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree\bst.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

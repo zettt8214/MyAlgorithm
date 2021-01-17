@@ -31,7 +31,7 @@ public:
 	
 	///  @brief 查看队首元素
 	const T& ViewTop() const {  
-		if (!priority_queue_.empty()) return priority_queue_[0]; 
+		if (!priority_queue_.empty()) return priority_queue_[0];
 	};
 	T ExtractTop();
 

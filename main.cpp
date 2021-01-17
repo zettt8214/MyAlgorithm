@@ -8,16 +8,30 @@
 */
 #include "Graph/graph.h"
 #include "Sort/my_sort.h"
-#include "Heap/priority_queue.h"
+#include "PriorityQueue\priority_queue.h"
+#include "Tree\bst.h"
 using namespace std;
 
 void PriorityQueueTest();
 void GraphTest();
 void HeapTest();
 void SortTest();
+void BstTest();
 
 int main() {
-	SortTest();
+	BstTest();
+}
+void BstTest() {
+	vector<int> nums = { 5,2,3,1,4 };
+	BinSearchTree bst(nums);
+	bst.TreeDelete(2);
+	bst.TreeInsert(6);
+	bst.TreeVist();
+	cout << "max:" << bst.TreeMaximum() << endl;
+	cout << "min:" << bst.TreeMinimum() << endl;
+	cout << "next:" << bst.TreeSuccessor(1) << endl;
+	cout << "pre:" << bst.TreePredecessor(8) << endl;
+	
 }
 
 void PriorityQueueTest() {
@@ -156,3 +170,4 @@ void SortTest() {
 	}
 	cout << endl;
 }
+
