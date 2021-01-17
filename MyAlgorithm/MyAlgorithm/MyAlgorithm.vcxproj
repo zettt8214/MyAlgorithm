@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f27b5a82-b8a3-4762-9376-ffb4bdf4a0d7}</ProjectGuid>
+    <ProjectGuid>{a1c88279-1daf-4d8a-849a-f1d6fd74b484}</ProjectGuid>
     <RootNamespace>MyAlgorithm</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>MyAlgorithm</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,16 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Graph\graph.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Sort\my_sort.cpp" />
-    <ClCompile Include="Tree\bst.cpp" />
+    <ClInclude Include="..\..\Graph\graph.h" />
+    <ClInclude Include="..\..\PriorityQueue\priority_queue.h" />
+    <ClInclude Include="..\..\Sort\my_sort.h" />
+    <ClInclude Include="..\..\Tree\bst.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Graph\graph.h" />
-    <ClInclude Include="PriorityQueue\priority_queue.h" />
-    <ClInclude Include="Sort\my_sort.h" />
-    <ClInclude Include="Tree\bst.h" />
+    <ClCompile Include="..\..\Graph\graph.cpp" />
+    <ClCompile Include="..\..\main.cpp" />
+    <ClCompile Include="..\..\Sort\my_sort.cpp" />
+    <ClCompile Include="..\..\Tree\bst.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

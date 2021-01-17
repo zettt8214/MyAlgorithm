@@ -15,31 +15,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Graph\graph.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Sort\my_sort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Tree\bst.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClInclude Include="..\..\Graph\graph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PriorityQueue\priority_queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sort\my_sort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Tree\bst.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Graph\graph.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Sort\my_sort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="PriorityQueue\priority_queue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Tree\bst.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="..\..\Tree\bst.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sort\my_sort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Graph\graph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
