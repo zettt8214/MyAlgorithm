@@ -142,12 +142,14 @@
     <ClInclude Include="..\..\Graph\graph.h" />
     <ClInclude Include="..\..\PriorityQueue\priority_queue.h" />
     <ClInclude Include="..\..\Sort\my_sort.h" />
+    <ClInclude Include="..\..\StrMatch\str_match.h" />
     <ClInclude Include="..\..\Tree\bst.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Graph\graph.cpp" />
     <ClCompile Include="..\..\main.cpp" />
     <ClCompile Include="..\..\Sort\my_sort.cpp" />
+    <ClCompile Include="..\..\StrMatch\str_match.cpp" />
     <ClCompile Include="..\..\Tree\bst.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

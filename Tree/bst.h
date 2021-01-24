@@ -30,7 +30,7 @@ private:
 private:
 	enum { kNInfinity = -65535};
 	void TreeVistHelper(TNode* p);
-	void Transpant(TNode* target, TNode* source);
+	void Transplant(TNode* target, TNode* source);
 	TNode* TreeMinimumHelper(Root_ t);
 	TNode* TreeMaximumHelper(Root_ t);
 	TNode* TreeSuccessorHelper(TNode* p);

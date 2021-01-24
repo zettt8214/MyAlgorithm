@@ -62,7 +62,10 @@ void BinSearchTree::TreeInsert(Tp key) {
 
 	TNode* pre = nullptr;
 	TNode* cur = root_;
+
+	
 	while (cur) {
+		/// 找到插入位置，与该位置的父节点
 		pre = cur;
 		if (key < cur->data) {
 			cur = cur->left;
@@ -71,7 +74,10 @@ void BinSearchTree::TreeInsert(Tp key) {
 			cur = cur->right;
 		}
 	}
+
 	node->parent = pre;
+
+	/// 插入元素
 	if (!pre) {
 		root_ = node;
 	}
@@ -93,19 +99,19 @@ void BinSearchTree::TreeDelete(Tp key) {
 	TNode* p = TreeSearch(key);
 	if (p) {
 		if (!p->left) {
-			Transpant(p, p->right);
+			Transplant(p, p->right);
 		}
 		else if (!p->right) {
-			Transpant(p, p->left);
+			Transplant(p, p->left);
 		}
 		else {
 			TNode* next = TreeMinimumHelper(p->right);  /// 找到p节点的后继节点
 			if (next->parent != p) {
-				Transpant(next, next->right);
+				Transplant(next, next->right);
 				next->right = p->right;
 				p->right->parent = next;
 			}
-			Transpant(p, next);
+			Transplant(p, next);
 			next->left = p->left;
 			next->left->parent = next;
 		}
@@ -202,7 +208,7 @@ void BinSearchTree::TreeVistHelper(TNode* p) {
 * @param target 被替换子树的根节点
 * @param source 源子树
 */
-void BinSearchTree::Transpant(TNode* target, TNode* source) {
+void BinSearchTree::Transplant(TNode* target, TNode* source) {
 	if (!target->parent) {
 		root_ = source;
 	}

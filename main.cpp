@@ -10,6 +10,7 @@
 #include "Sort/my_sort.h"
 #include "PriorityQueue\priority_queue.h"
 #include "Tree\bst.h"
+#include "StrMatch\str_match.h"
 using namespace std;
 
 void PriorityQueueTest();
@@ -17,9 +18,17 @@ void GraphTest();
 void HeapTest();
 void SortTest();
 void BstTest();
+void StrMatchTest();
 
 int main() {
-	BstTest();
+	StrMatchTest();
+}
+
+void StrMatchTest() {
+	vector<int> ans = KmpMatch("ababacabcaa", "ab"); // 0, 3, 6
+	for (auto x : ans) {
+		cout << x << " ";
+	}
 }
 void BstTest() {
 	vector<int> nums = { 5,2,3,1,4 };
