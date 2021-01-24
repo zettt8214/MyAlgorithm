@@ -85,7 +85,7 @@ vector<int> RabinKarpMatch(string text, string pattern) {
 
 
 static vector<int> KmpPrefixComputing(string pattern) {
-	vector<int> prefix(pattern.size() + 1, 0);
+	vector<int> prefix(pattern.size(), 0);
 
 	/* pattern中已匹配字符数 */
 	int k = 0; 
@@ -94,7 +94,7 @@ static vector<int> KmpPrefixComputing(string pattern) {
 	/* 本质是由pattern[0:] 取匹配 pattern[1:] 求pattern[0:i]后缀的关于pattern的最长前缀 */
 	for (int i = 1; i < pattern.size(); i++) {
 		while (k > 0 && pattern[k] != pattern[i]) {
-			k = prefix[k];
+			k = prefix[k - 1];
 		}
 		if (pattern[k] == pattern[i]) {
 			k++;
@@ -115,7 +115,7 @@ vector<int> KmpMatch(string text, string pattern) {
 	int k = 0;
 	for (int i = 0; i < text.size(); i++) {
 		while (k > 0 && pattern[k] != text[i]) {
-			k = prefix[k];
+			k = prefix[k - 1];
 		}
 		if (pattern[k] == text[i]) {
 			k++;
