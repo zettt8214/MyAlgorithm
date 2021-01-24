@@ -96,6 +96,10 @@ static vector<int> KmpPrefixComputing(string pattern) {
 	return prefix;
 }
 
+/*
+* @brief KMP 匹配算法
+* @return 返回pattern在text匹配成功的索引值，若未匹配成功，返回空数组
+*/
 vector<int> KmpMatch(string text, string pattern) {
 	vector<int> matched_index;
 	vector<int> prefix = KmpPrefixComputing(pattern);
