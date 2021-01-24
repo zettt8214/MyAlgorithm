@@ -1,6 +1,14 @@
-#include "str_match.h"
+/**
+* @file			str_match.cpp
+* @author		tanghf
+* @date			2021-01-24
+* @version		V1.0
+* @copyright    Copyright (c) 2021
+*/
+
 #include <cmath>
 #include <iostream>
+#include "str_match.h"
 using namespace std;
 
 /*
